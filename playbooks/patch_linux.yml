@@ -1,0 +1,10 @@
+---
+- name: Patch Linux Servers
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == "Debian"
