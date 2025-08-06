@@ -1,0 +1,9 @@
+---
+- name: Patch Windows Servers
+  hosts: windows
+  tasks:
+    - name: Install all updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+        reboot: yes
