@@ -1,8 +1,8 @@
 ---
-name: Vérification des mises à jour Windows
-hosts: windows
-gather_facts:false
-tasks:
+-name: Vérification des mises à jour Windows
+ hosts: windows
+ gather_facts: false
+ tasks:
     - name: Check for available Windows updates
       ansible.windows.win_updates:
         category_names:
