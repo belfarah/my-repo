@@ -1,0 +1,22 @@
+tasks:
+    - name: Check for available Windows updates
+      ansible.windows.win_updates:
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
+          - Updates
+          - DefinitionUpdates
+        # Add other desired categories as needed
+      check_mode: true # This is crucial for check-only operation
+      register: update_results
+
+    - name: Display available updates
+      debug:
+        var: update_results.updates
+      when: update_results.updates is defined and update_results.updates | length > 0
+
+    - name: Display filtered updates (updates not matching specified categories)
+      debug:
+        var: update_results.filtered_updates
+      when: update_results.filtered_updates is defined and update_results.filtered_updates | length > 0
