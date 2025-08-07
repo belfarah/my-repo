@@ -3,8 +3,6 @@
   hosts: linux
   gather_facts: yes
   become: yes
-  become_method: su
-  become_user: root
   tasks:
     - name: Update yum packages
       yum:
