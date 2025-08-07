@@ -3,7 +3,7 @@
   hosts: linux
   tasks:
     - name: Update yum packages
-      sudo yum:
+      yum:
         name: '*'
         state: latest
       when: ansible_os_family == "RedHat"
