@@ -2,7 +2,7 @@
 - name: Historique des mises à jour Linux
   hosts: linux
   gather_facts: no
-  become: yes
+  become: no
 
   tasks:
     - name: Récupérer historique via dnf
