@@ -1,1 +1,15 @@
+---
+- name: Historique des mises à jour Linux
+  hosts: linux
+  gather_facts: no
+  become: yes
 
+  tasks:
+    - name: Récupérer historique via dnf
+      shell: dnf history list
+      register: maj_history
+      when: ansible_os_family == "RedHat"
+
+    - name: Afficher l'historique
+      debug:
+        var: maj_history.stdout_lines
