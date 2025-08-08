@@ -2,7 +2,7 @@
 - name: Patch Red Hat Servers
   hosts: linux
   become: yes
-  become_method: su
+  become_method: sudo
   become_user: root
   gather_facts: yes
   tasks:
