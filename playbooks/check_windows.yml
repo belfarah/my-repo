@@ -11,6 +11,7 @@
            - UpdateRollups
            - Updates
            - DefinitionUpdates
+           - Drivers
          # Add other desired categories as needed
        check_mode: true # This is crucial for check-only operation
        register: update_results
