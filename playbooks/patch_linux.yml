@@ -1,9 +1,7 @@
 ---
 - name: Patch Red Hat Servers
   hosts: linux
-  become: yes
-  become_method: sudo
-  become_user: root
+  become: no
   gather_facts: yes
   tasks:
     - name: Update yum packages
