@@ -1,1 +1,15 @@
+---
+- name: Vérification des mises à jour sur Red Hat
+  hosts: linux
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Vérifier les mises à jour disponibles
+      yum:
+        list: updates
+      register: updates_list
+      when: ansible_os_family == "RedHat"
 
+    - name: Afficher la liste des mises à jour
+      debug:
+        var: updates_list
