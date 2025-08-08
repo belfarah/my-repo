@@ -2,7 +2,7 @@
 - name: Vérification des mises à jour sur Red Hat
   hosts: linux
   gather_facts: yes
-  become: yes
+  become: no
   tasks:
     - name: Vérifier les mises à jour disponibles
       yum:
