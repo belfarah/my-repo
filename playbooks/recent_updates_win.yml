@@ -1,1 +1,13 @@
+---
+- name: Historique des mises à jour Windows
+  hosts: windows
+  gather_facts: yes
 
+  tasks:
+    - name: Lister les mises à jour installées
+      ansible.windows.win_shell: Get-HotFix | Sort-Object -Property InstalledOn -Descending
+      register: maj_history
+
+    - name: Afficher l'historique
+      debug:
+        var: maj_history.stdout_lines
